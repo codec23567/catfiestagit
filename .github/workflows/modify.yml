@@ -3,6 +3,16 @@ name: Modify Post
 on:
   workflow_dispatch:
     inputs:
+      id:
+        description: "User ID"
+        required: true
+        type: string
+
+      pw:
+        description: "User Password"
+        required: true
+        type: string
+
       url:
         description: "Modify URL"
         required: true
