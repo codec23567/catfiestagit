@@ -42,4 +42,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run script
+        env:
+          INPUT_ID: ${{ github.event.inputs.id }}
+          INPUT_PW: ${{ github.event.inputs.pw }}
+          INPUT_URL: ${{ github.event.inputs.url }}
+          INPUT_HTML: ${{ github.event.inputs.html }}
         run: python run.py
