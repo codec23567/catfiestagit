@@ -25,6 +25,11 @@ on:
         required: true
         type: string
 
+
+      urls:
+        required: false
+        type: string
+      
       html:
         description: "HTML"
         required: false
