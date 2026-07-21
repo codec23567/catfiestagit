@@ -12,19 +12,19 @@ on:
 
       id:
         description: "User ID"
-        required: true
+        required: false
+
         type: string
 
       pw:
         description: "User Password"
-        required: true
+        required: false
         type: string
 
       url:
         description: "Modify URL"
-        required: true
+        required: false
         type: string
-
 
       urls:
         required: false
