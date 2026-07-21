@@ -1,8 +1,15 @@
 name: Modify Post
 
+
 on:
   workflow_dispatch:
     inputs:
+
+      mode:
+        description: "Editor Mode"
+        required: true
+        type: string
+
       id:
         description: "User ID"
         required: true
@@ -20,8 +27,14 @@ on:
 
       html:
         description: "HTML"
-        required: true
+        required: false
+        type: string    
+
+      text:
+        description: "Text"
+        required: false
         type: string
+
 
 jobs:
   modify:
@@ -43,8 +56,15 @@ jobs:
 
       - name: Run script
         env:
+          INPUT_MODE: ${{ github.event.inputs.mode }}
           INPUT_ID: ${{ github.event.inputs.id }}
           INPUT_PW: ${{ github.event.inputs.pw }}
           INPUT_URL: ${{ github.event.inputs.url }}
           INPUT_HTML: ${{ github.event.inputs.html }}
+          INPUT_TEXT: ${{ github.event.inputs.text }}
         run: python run.py
+
+
+
+
+        
