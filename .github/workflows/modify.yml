@@ -9,7 +9,12 @@ on:
         description: "Editor Mode"
         required: true
         type: string
-
+        
+      sheet:
+        description: "Sheet Name"
+        required: false
+        type: string
+        
       id:
         description: "User ID"
         required: false
