@@ -16,14 +16,14 @@ LOGIN_URL = (
 )
 
 
-def modify_post_editor(
+def modify_normal_post(
     user_id,
     user_pw,
     modify_url,
     text
 ):
     
-    print("★★★★★ modify_post 시작 ★★★★★", flush=True)
+    print("★★★★★ modify_normal_post 시작 ★★★★★", flush=True)
     start = time.perf_counter()
     options = Options()
 
@@ -248,6 +248,6 @@ def modify_post_editor(
 
     finally:
         elapsed = time.perf_counter() - start
-        print(f"[modify_post] 실행시간: {elapsed:.2f}초")
+        print(f"[modify_normal_post] 실행시간: {elapsed:.2f}초")
         driver.quit()
         
