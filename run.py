@@ -56,3 +56,5 @@ else:
     raise ValueError(f"Unknown mode: {mode}")
 
 print(result)
+print("INPUT_SHEET =", os.environ.get("INPUT_SHEET"))
+print("GAS_WEBAPP_URL =", os.environ.get("GAS_WEBAPP_URL"))
