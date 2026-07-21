@@ -43,6 +43,7 @@ elif mode == "extract_info":
         os.environ["GAS_WEBAPP_URL"],
         json={
             "secret": os.environ["GAS_SECRET"],
+            "sheet": os.environ.get("INPUT_SHEET", ""),
             "results": result
         },
         timeout=30
