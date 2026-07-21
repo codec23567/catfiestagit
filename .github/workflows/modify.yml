@@ -60,6 +60,7 @@ jobs:
           INPUT_ID: ${{ github.event.inputs.id }}
           INPUT_PW: ${{ github.event.inputs.pw }}
           INPUT_URL: ${{ github.event.inputs.url }}
+          INPUT_URLS: ${{ github.event.inputs.urls }}
           INPUT_HTML: ${{ github.event.inputs.html }}
           INPUT_TEXT: ${{ github.event.inputs.text }}
         run: python run.py
