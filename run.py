@@ -32,12 +32,11 @@ elif mode == "text":
         text=text
     )
 
-elif mode == "extract":
+elif mode == "extract_info":
 
-    urls = json.loads(os.environ["INPUT_URLS"])
+    urls = json.loads(os.environ.get("INPUT_URLS", "[]"))
 
-    extract_info(urls)
-
+    result = extract_info(urls)
 
 else:
     raise ValueError(f"Unknown mode: {mode}")
