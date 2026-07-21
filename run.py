@@ -1,5 +1,6 @@
 import json
 import os
+import requests
 
 from login_modify_actual import modify_post
 from login_modify_normal import modify_normal_post
@@ -37,6 +38,15 @@ elif mode == "extract_info":
     urls = json.loads(os.environ.get("INPUT_URLS", "[]"))
 
     result = extract_info(urls)
+
+    requests.post(
+        os.environ["GAS_WEBAPP_URL"],
+        json={
+            "secret": os.environ["GAS_SECRET"],
+            "results": result
+        },
+        timeout=30
+    )
 
 else:
     raise ValueError(f"Unknown mode: {mode}")
