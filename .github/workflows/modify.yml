@@ -68,6 +68,10 @@ jobs:
           INPUT_URLS: ${{ github.event.inputs.urls }}
           INPUT_HTML: ${{ github.event.inputs.html }}
           INPUT_TEXT: ${{ github.event.inputs.text }}
+
+          GAS_WEBAPP_URL: ${{ secrets.GAS_WEBAPP_URL }}
+          GAS_SECRET: ${{ secrets.GAS_SECRET }}
+          
         run: python run.py
 
 
