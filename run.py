@@ -4,7 +4,7 @@ import requests
 
 from login_modify_actual import modify_post
 from login_modify_normal import modify_normal_post
-from extract_info import extract_info
+from nickdate_test import extract_nickdate
 
 print("GitHub Actions 시작")
 
@@ -37,9 +37,9 @@ elif mode == "extract_info":
 
     urls = json.loads(os.environ.get("INPUT_URLS", "[]"))
 
-    result = extract_info(urls)
+    result = [extract_nickdate(url) for url in urls]
 
-    requests.post(
+    response = requests.post(
         os.environ["GAS_WEBAPP_URL"],
         json={
             "secret": os.environ["GAS_SECRET"],
@@ -47,6 +47,9 @@ elif mode == "extract_info":
         },
         timeout=30
     )
+
+    response.raise_for_status()
+    print(response.text)
 
 else:
     raise ValueError(f"Unknown mode: {mode}")
