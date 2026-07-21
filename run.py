@@ -1,7 +1,9 @@
+import json
 import os
 
 from login_modify_actual import modify_post
 from login_modify_normal import modify_normal_post
+from extract_info import extract_info
 
 print("GitHub Actions 시작")
 
@@ -29,6 +31,13 @@ elif mode == "text":
         modify_url=modify_url,
         text=text
     )
+
+elif mode == "extract":
+
+    urls = json.loads(os.environ["INPUT_URLS"])
+
+    extract_info(urls)
+
 
 else:
     raise ValueError(f"Unknown mode: {mode}")
